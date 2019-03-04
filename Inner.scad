@@ -1,5 +1,4 @@
-// Tab & slot
-use <TABS.scad>;
+
 // Battery holder
 use <flex_battery.scad>;
 
