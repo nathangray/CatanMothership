@@ -69,3 +69,26 @@ difference() {
 	translate([0,0,11.5])  cube([10,50,10],true);
 }
 }
+
+
+module arduino_clip() {
+	difference() {
+		intersection() {
+			// Outer shell
+			translate([0,0,0]) cylinder(h=120, r=OUTER_R_T-TOLERANCE);
+			union() {
+				translate([8.5,-9.5,1.9]) cube([4,6,17]);
+				translate([-12.5,-9.5,1.9]) cube([4,6,17]);
+			}
+		}
+		translate([0,-5.0,1]) arduino(TOLERANCE);
+	}
+}
+module arduino(tol=0) {
+	translate([-9.3, 0,2]) rotate([90,0,0])
+	union() {
+		color("royalblue") cube([18.6+tol, 34.25, 1.6+tol]);
+		translate([6.5,3.5,1.6]) color("silver") cube([6.2, 3.75, 2.6]);
+		translate([9,14,1.6]) rotate([0,0,45]) color("black") cube([8.5,8.5,1]);
+	}
+}
