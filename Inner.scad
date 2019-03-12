@@ -32,9 +32,11 @@ insert_depth = 8;
 // Arduino board
 //	rotate([0,0,00]) translate([-6, 0,-10]) rotate([0,0,-90]) arduino();
 
-
+difference() {
 // Battery holders
 battery_holder();
+	tab_ring();
+}
 	
 // Light pokey bit
 light_stick();
@@ -56,7 +58,7 @@ module battery_holder() {
 	// Plug/insertion bit
 	intersection() {
 		// Inner hole
-	#translate([0,0,-35]) cylinder(h=HEIGHT_INNER +1, r = INNER_R);
+	translate([0,0,-35]) cylinder(h=HEIGHT_INNER +1, r = INNER_R - TOLERANCE/2);
 		union() {
 			translate([5.0,0,0]) cube([20,40,5],true);
 			//translate([0,-10,5]) cube([10,5,5],true);
@@ -75,32 +77,13 @@ module battery_holder() {
 	//translate([0,0,5]) cylinder(h=5, r=INNER_R);
 }
 
-module arduino_clip() {
-	difference() {
-		intersection() {
-			// Outer shell
-			translate([0,0,0]) cylinder(h=120, r=OUTER_R_T-TOLERANCE);
-			union() {
-				translate([8.5,-9.5,1.9]) cube([4,6,17]);
-				translate([-12.5,-9.5,1.9]) cube([4,6,17]);
-			}
-		}
-		translate([0,-5.0,1]) arduino(TOLERANCE);
-	}
-}
-module arduino(tol=0) {
-	translate([-9.3, 0,2]) rotate([90,0,0])
-	union() {
-		color("royalblue") cube([18.6+tol, 34.25, 1.6+tol]);
-		translate([6.5,3.5,1.6]) color("silver") cube([6.2, 3.75, 2.6]);
-		translate([9,14,1.6]) rotate([0,0,45]) color("black") cube([8.5,8.5,1]);
-	}
-}
 
 module light_stick() {
 	
 difference() {
-	translate([-1,0,-16]) cube([8,1.8,35],true);
+	translate([-1,0,-18]) cube([8,1.8,37],true);
 	for(z=[0 : 8 : 24]) translate([-1,5,-5-z]) rotate([90,0,0])cylinder(h=10, r=2);
 }
+	// So no brim needed
+	translate([-5,0,-35]) rotate([0,90,0]) cylinder(h=0.15, r=5);
 }
