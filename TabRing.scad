@@ -13,7 +13,7 @@ OUTER_H_B = 6; // Height for lower
 HEIGHT_INNER = 44;
 
 // Inner hollow
-INNER_R = 11.4;
+INNER_R = 11.0;
 
 
 // Tabs variables
@@ -21,6 +21,7 @@ tab_number = 3;
 tab_length=3;
 insert_depth = 8;
 
+$fn=72;
 
 //#translate([0,0,0]) rotate([0,0,-3]) scale([0.995,0.995, 1]) import("base.stl");
 tab_ring();
@@ -77,11 +78,11 @@ module arduino_clip() {
 			// Outer shell
 			translate([0,0,0]) cylinder(h=120, r=OUTER_R_T-TOLERANCE);
 			union() {
-				translate([8.5,-9.5,1.9]) cube([4,6,17]);
-				translate([-12.5,-9.5,1.9]) cube([4,6,17]);
+				translate([8.5,-9.1,1.9]) cube([4,6,17]);
+				translate([-12.5,-9.1,1.9]) cube([4,6,17]);
 			}
 		}
-		translate([0,-5.0,1]) arduino(TOLERANCE);
+		translate([0,-4.6,1]) arduino(TOLERANCE);
 	}
 }
 module arduino(tol=0) {

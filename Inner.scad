@@ -17,7 +17,7 @@ OUTER_H_B = 6; // Height for lower
 HEIGHT_INNER = 44;
 
 // Inner hollow
-INNER_R = 11.4;
+INNER_R = 11.0;
 
 
 // Tabs variables
