@@ -58,9 +58,9 @@ module battery_holder() {
 	// Plug/insertion bit
 	intersection() {
 		// Inner hole
-	translate([0,0,-35]) cylinder(h=HEIGHT_INNER +1, r = INNER_R - TOLERANCE/2);
+		translate([0,0,-35]) cylinder(h=HEIGHT_INNER +1, r = INNER_R - TOLERANCE);
 		union() {
-			translate([5.0,0,0]) cube([20,40,5],true);
+			translate([5.0,0,0]) cube([20,14,5],true);
 			//translate([0,-10,5]) cube([10,5,5],true);
 		//	translate([0,10,5]) cube([10,5,5],true);
 		
