@@ -35,6 +35,6 @@ difference() {
 	
 	// Fame magnets
 	translate([0,0,MAGNET_LOCATION]) cylinder(h=30, r=10);
-	translate([0,0,MAGNET_LOCATION-7]) cylinder(h=2.5, r=5.5);
+	translate([0,0,MAGNET_LOCATION-4]) cylinder(h=2.5, r=5.5);
 }
 	
