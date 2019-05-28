@@ -26,4 +26,7 @@ difference() {
 	// Cut off nozzle
 	translate([0,0,-48]) cylinder(h=26, d1=40, d2=10);
 	translate([0,0,-30]) cylinder(h=15, r=6.2);
+	
+	// Power button
+	#rotate([0,0,60]) translate([0,0,-13]) rotate([0,90,0]) cylinder(h=50, r=0.8);
 }
