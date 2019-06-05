@@ -17,7 +17,10 @@ insert_depth = 8;
 rotation=-30;
 
 difference() {
-	translate([0,0,14]) rotate([0,0,8.8]) scale([0.995,0.995, 1]) import("body_repaired.stl");
+	union() {
+		translate([0,0,14]) rotate([0,0,8.8]) scale([0.995,0.995, 1]) import("body_repaired.stl");
+		#translate([0,0,73]) cylinder(h=0.6, r=11.85);
+	}
 	
 	// Hollow it out
 	translate([0,0,INNER_H]) sphere(INNER_R);
