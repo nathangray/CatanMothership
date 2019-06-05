@@ -106,7 +106,11 @@ void shake()
   // Determine colors
   getColors();
 
-  show();
+  if(!blackball) {
+    show();
+  }
+  // Set a timeout for idle / shutdown
+  state = STATE_SLEEP;
 }
 
 void show() {
@@ -116,9 +120,6 @@ void show() {
   }
   FastLED.show();
   FastLED.delay(5000);
-
-  // Set a timeout for idle / shutdown
-  state = STATE_SLEEP;
 }
 void getColors()
 {
